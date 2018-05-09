@@ -24,6 +24,8 @@ $sql1 = "create table Users (
 	mobilenumber VARCHAR(20),
 	changetime VARCHAR(255),
 	emailid VARCHAR(255),
+	pic_path VARCHAR(255),
+	user_time_zone VARCHAR(255),
 	rolei VARCHAR(20))";
 if (mysqli_query($conn, $sql1)) {
     //echo "Users Table created successfully";
