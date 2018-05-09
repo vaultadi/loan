@@ -8,7 +8,6 @@ if (!empty($_SESSION))
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Success!</strong> You have Logged in successfully !!
 </div>
-<a href="logout.php">logout</a>
 <?php
 }
 else

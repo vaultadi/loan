@@ -25,7 +25,18 @@ $sql1 = "create table Users (
 	changetime VARCHAR(255),
 	emailid VARCHAR(255),
 	pic_path VARCHAR(255),
+	birthdate VARCHAR(255),
 	user_time_zone VARCHAR(255),
+	father  VARCHAR(255),
+	mother VARCHAR(255),
+	radios1 VARCHAR(10),
+	occupation VARCHAR(255),
+	secoccupation VARCHAR(255),
+	phone VARCHAR(255),
+	citizen VARCHAR(255),
+	lang VARCHAR(50),
+	overview VARCHAR(255),
+	pan VARCHAR(20),
 	rolei VARCHAR(20))";
 if (mysqli_query($conn, $sql1)) {
     //echo "Users Table created successfully";
@@ -59,6 +70,7 @@ $sql3 = "create table application(
 		cityinput VARCHAR(255),
 		statebasic VARCHAR(50),
 		zipinput VARCHAR(50),
+		panid VARCHAR(50),
 		emailinput VARCHAR(255),
 		birthinput VARCHAR(50),
 		radios VARCHAR(20),

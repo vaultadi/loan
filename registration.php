@@ -40,7 +40,7 @@ include 'connection.php';
 <!-- Multiple Radios (inline) -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="gender">Gender</label>
-  <div class="col-md-4"> 
+  <div class="col-md-5"> 
     <label class="radio-inline" for="gender-0">
       <input type="radio" name="gender" id="gender-0" value="Male" checked="checked">
       Male
@@ -55,7 +55,7 @@ include 'connection.php';
 <!-- Textarea -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="address">Address</label>
-  <div class="col-md-4">                     
+  <div class="col-md-5">                     
     <textarea class="form-control" id="address" name="address">default text</textarea>
   </div>
 </div>
@@ -79,17 +79,23 @@ include 'connection.php';
   <label class="col-md-4 control-label" for="mobilenumber">Mobile Number</label>  
   <div class="col-md-5">
   <input id="mobilenumber" name="mobilenumber" type="text" placeholder="Mobile Number" class="form-control input-md" required="">
-    
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="emailId">Email Id</label>  
-  <div class="col-md-6">
+  <div class="col-md-5">
   <input id="emailid" name="emailid" type="text" placeholder="user@domain.com" class="form-control input-md" required="">
-    
   </div>
+</div>
+
+<!-- date of birth -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="emailId">Email Id</label>  
+  <div class="col-md-5">
+<input name="DatOfBirth" id="DatOfBirth" class="form-control" type="date" required />
+</div>
 </div>
 
 <!-- Select Multiple -->
@@ -107,7 +113,7 @@ include 'connection.php';
 <!-- Prepended checkbox -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="check_critiria">Check the box</label>
-  <div class="col-md-6">
+  <div class="col-md-5">
     <div class="input-group">
       <span class="input-group-addon">     
           <input type="checkbox">     
@@ -121,7 +127,7 @@ include 'connection.php';
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit"></label>
-  <div class="col-md-4">
+  <div class="col-md-5">
     <button id="submit" name="submit" class="btn btn-success">Submit</button>
   </div>
 </div>

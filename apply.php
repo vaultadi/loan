@@ -28,6 +28,15 @@ include 'session.php';
   </div>
 </div>
 
+<!--pan number-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="emailinput">PAN ID</label>  
+  <div class="col-md-5">
+  <input id="pan" name="pan" type="text" placeholder="PAN ID" class="form-control input-md" required="">
+  <span class="help-block">Please Enter your pan number</span>  
+  </div>
+</div>
+
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="streetinput">Street Address</label>  
@@ -40,7 +49,7 @@ include 'session.php';
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="cityinput">City</label>  
-  <div class="col-md-4">
+  <div class="col-md-5">
   <input id="cityinput" name="cityinput" type="text" placeholder="city" class="form-control input-md" required="">
     
   </div>
@@ -49,7 +58,7 @@ include 'session.php';
 <!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="statebasic">State</label>
-  <div class="col-md-2">
+  <div class="col-md-5">
     <select id="statebasic" name="statebasic" class="form-control">
       <option value="AL">Alabama</option>
       <option value="AK">Alaska</option>
@@ -108,7 +117,7 @@ include 'session.php';
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="zipinput">Zip Code</label>  
-  <div class="col-md-2">
+  <div class="col-md-5">
   <input id="zipinput" name="zipinput" type="text" placeholder="zip code" class="form-control input-md" required="">
   <span class="help-block">Please enter your current zip code</span>  
   </div>
@@ -117,7 +126,7 @@ include 'session.php';
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="emailinput">Email Address</label>  
-  <div class="col-md-4">
+  <div class="col-md-5">
   <input id="emailinput" name="emailinput" type="text" placeholder="email address" class="form-control input-md" required="">
   <span class="help-block">Please Enter Your Email Address</span>  
   </div>
@@ -126,7 +135,7 @@ include 'session.php';
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="birthinput">Date of Birth</label>  
-  <div class="col-md-2">
+  <div class="col-md-5">
   <input id="birthinput" name="birthinput" type="text" placeholder="mm/dd/yyyy" class="form-control input-md" required="">
   <span class="help-block">Please enter your date of birth in mm/dd/yyyy format</span>  
   </div>
@@ -135,7 +144,7 @@ include 'session.php';
 <!-- Multiple Radios -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="radios">Gender</label>
-  <div class="col-md-4">
+  <div class="col-md-5">
   <div class="radio">
     <label for="radios-0">
       <input type="radio" name="radios" id="radios-0" value="f" checked="checked">
@@ -154,7 +163,7 @@ include 'session.php';
 <!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="selectbasic">Loan Type</label>
-  <div class="col-md-2">
+  <div class="col-md-5">
     <select id="selectbasic1" name="selectbasic1" class="form-control">
       <option value="E">home loan</option>
       <option value="G">vehicle loan</option>
@@ -167,7 +176,7 @@ include 'session.php';
 <!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="selectbasic">Loan Amount</label>
-  <div class="col-md-2">
+  <div class="col-md-5">
     <select id="selectbasic2" name="selectbasic2" class="form-control">
       <option value="5">$5,000</option>
       <option value="10">$10,000</option>
@@ -188,7 +197,7 @@ include 'session.php';
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="singlebutton"></label>
-  <div class="col-md-4">
+  <div class="col-md-5">
     <button id="submitButton" input type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Apply</button>
   </div>
 </div>
