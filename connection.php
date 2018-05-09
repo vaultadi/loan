@@ -22,6 +22,7 @@ $sql1 = "create table Users (
 	address VARCHAR(255),
 	country VARCHAR(20),
 	mobilenumber VARCHAR(20),
+	changetime VARCHAR(255),
 	emailid VARCHAR(255),
 	rolei VARCHAR(20))";
 if (mysqli_query($conn, $sql1)) {
@@ -47,4 +48,24 @@ if (mysqli_query($conn, $sql2)) {
     //echo ("Session Table not created" . mysqli_error($conn));
 }
 	
-	
+$sql3 = "create table application(
+		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		formid VARCHAR(255) NOT NULL,
+		firstnameinput VARCHAR(255) NOT NULL,
+		lastnameinput VARCHAR(255),
+		streetinput VARCHAR(255),
+		cityinput VARCHAR(255),
+		statebasic VARCHAR(50),
+		zipinput VARCHAR(50),
+		emailinput VARCHAR(255),
+		birthinput VARCHAR(50),
+		radios VARCHAR(20),
+		selectbasic1 VARCHAR(20),
+		selectbasic2 VARCHAR(20))";
+		
+if (mysqli_query($conn, $sql3)) {
+    //echo "application Table created";
+} else {
+    //echo '<br>';
+    //echo ("application Table not created" . mysqli_error($conn));
+}

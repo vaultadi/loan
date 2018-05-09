@@ -45,8 +45,8 @@ include 'connection.php';
                                     <!-- Button -->
 
                                     <div style="text-align: center;">
-                    <button id="submitButton" input type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> LogIn</button>
-                </div>
+										<button id="submitButton" input type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> LogIn</button>
+									</div>
                                 </div>
 
 
@@ -103,7 +103,8 @@ if (isset($_POST["passwordinput"]) && isset($_POST["emailid"]) && isset($_POST["
         }
 		?>
 
-                <?php header("Location: success.php");
+                <?php 
+				header("Location: success.php");
     }
     else
     {

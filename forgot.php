@@ -52,7 +52,7 @@ include 'header.php';
  */
 if (isset($_POST["emailid"]) && isset($_POST["passowrdinput"]) && isset($_POST["confirm_password"]))
 {
-    $sql = "SELECT * from Users where emailid='" . $_POST["emailid"] . "'";
+    $sql = "SELECT * from Users WHERE emailid='" . $_POST["emailid"] . "'";
     if (mysqli_num_rows(mysqli_query($conn, $sql)) >= 1)
     {
 
@@ -63,7 +63,7 @@ if (isset($_POST["emailid"]) && isset($_POST["passowrdinput"]) && isset($_POST["
 								  WHERE emailid='" . $_POST['emailid'] . "'";
 
         mysqli_query($conn, $sql8);
-		
+
 ?>		
   <div class="alert alert-success alert-dismissible">
     <strong>Success!</strong> You Password has been reset successfully. You can login from <a href="newlogin.php" class="alert-link">here.</a>.
