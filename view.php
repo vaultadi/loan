@@ -23,16 +23,16 @@ if (!empty($_SESSION))
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="images/<?php
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="image/<?php
         if (empty($user[12]))
         {
-            echo 'anonymous.jpeg';
+            echo 'avatar.jpg';
         }
         else
         {
             echo $user[12];
         }
-?>" class="img-circle img-responsive"> </div>
+?>" class="img-round img-responsive img-thumbnail"> </div>
                 
                 <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">
@@ -47,7 +47,7 @@ if (!empty($_SESSION))
                       </tr>
                       <tr>
                         <td>Date of Birth</td>
-                        <td><?php echo $user[12] ?></td>
+                        <td><?php echo $user[11] ?></td>
                       </tr>
                    
                          <tr>
@@ -61,10 +61,10 @@ if (!empty($_SESSION))
                       </tr>
                       <tr>
                         <td>Email</td>
-                        <td><a href="mailto:<?php echo $user[10] ?>"><?php echo $user[10] ?></a></td>
+                        <td><a href="mailto:<?php echo $user[9] ?>"><?php echo $user[9] ?></a></td>
                       </tr>
                         <td>Phone Number</td>
-                        <td><?php echo $user[8] ?> (Mobile)
+                        <td><?php echo $user[7] ?> (Mobile)
                         </td>
                            
                       </tr>
@@ -77,7 +77,7 @@ if (!empty($_SESSION))
                  <div class="panel-footer">
                         <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
                         <span class="pull-right">
-                            <a href="ProfileEditPage.php" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>          
+                            <a href="profileee.php" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>          
                         </span>
                  </div>
             
@@ -95,4 +95,4 @@ else
     header('Refresh: 1; URL=newlogin.php');
 
 }
-include ('footer.php');
+//include ('footer.php');

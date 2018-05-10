@@ -1,6 +1,8 @@
 <?php
 include 'header.php';
 include 'connection.php';
+if (empty($_SESSION))
+{
 ?>
 <div class="container">    
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
@@ -120,5 +122,10 @@ else
 {
 
 }
+}
+else {
+header("Location: success.php");
+}
+
 //include ('footer.php');
 ?>

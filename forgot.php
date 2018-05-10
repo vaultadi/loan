@@ -1,5 +1,7 @@
 <?php
 include 'header.php';
+if (empty($_SESSION))
+{
 ?>
 <div class="form-gap"></div>
 <div class="container">
@@ -45,6 +47,15 @@ include 'header.php';
           </div>
 	</div>
 </div>
+ <?php
+}
+else
+{
+    //header("Location: ForgotPassword.php");
+   
+}
+//include ('footer.php');
+?>
 
 <?php
 /**
@@ -55,7 +66,6 @@ if (isset($_POST["emailid"]) && isset($_POST["passowrdinput"]) && isset($_POST["
     $sql = "SELECT * from Users WHERE emailid='" . $_POST["emailid"] . "'";
     if (mysqli_num_rows(mysqli_query($conn, $sql)) >= 1)
     {
-
         /*Updating password value*/
         $sql8 = "UPDATE Users SET passwordinput='" .$_POST['passwordinput'] . "' , 
 		                          confirm_password='" . $_POST['confirm_password'] . "' ,
@@ -63,6 +73,7 @@ if (isset($_POST["emailid"]) && isset($_POST["passowrdinput"]) && isset($_POST["
 								  WHERE emailid='" . $_POST['emailid'] . "'";
 
         mysqli_query($conn, $sql8);
+		
 
 ?>		
   <div class="alert alert-success alert-dismissible">

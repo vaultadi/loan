@@ -92,9 +92,9 @@ include 'connection.php';
 
 <!-- date of birth -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="emailId">Email Id</label>  
+  <label class="col-md-4 control-label" for="emailId">Date Of Birth</label>  
   <div class="col-md-5">
-<input name="DatOfBirth" id="DatOfBirth" class="form-control" type="date" required />
+<input name="birthdate" id="birthdate" class="form-control" type="date" required />
 </div>
 </div>
 
@@ -153,17 +153,20 @@ if (isset($_POST["mobilenumber"]) && isset($_POST["emailid"])) {
 		  		  $userid = 'cus' . substr(strip_tags($_POST["mobilenumber"], -4),0) . '' . substr(strip_tags($_POST["name"], 0, 2)) . '' . substr(strip_tags($_POST["country"], 0, 2)) . '' . date('His', time());
 				}
 				  
-			$query = "INSERT INTO Users (userid,name,passwordinput,confirm_password,gender,address,country,mobilenumber,emailid,rolei)
+			$query = "INSERT INTO Users (userid,name,passwordinput,confirm_password,gender,address,country,mobilenumber,emailid,rolei,birthdate)
 						VALUES ('".strtoupper($userid) . "' , '".strip_tags($_POST["name"])."' , '".strip_tags($_POST["passwordinput"])."' , '".strip_tags($_POST["confirm_password"])."' , '".strip_tags($_POST["gender"])."' , '".strip_tags($_POST["address"])."' ,
-						'".strip_tags($_POST["country"])."' , '".strip_tags($_POST["mobilenumber"])."' , '".strip_tags($_POST["emailid"])."' , '".($_POST["rolei"])."')";
+						'".strip_tags($_POST["country"])."' , '".strip_tags($_POST["mobilenumber"])."' , '".strip_tags($_POST["emailid"])."' , '".($_POST["rolei"])."' , '".strip_tags($_POST["birthdate"])."')";
 						
 			     mysqli_query($conn, $query);
+echo "Error: " . $sql . "<br>" . $conn->error;
+
 ?>		
 <div class="alert alert-success alert-dismissible">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Success!</strong> Thanks for your registration <i><?php echo $_POST["name"]; ?></i> your userid is <b><?php echo strtoupper($userid); ?> </b> use this ID for future reference.
   </div>
   <?php
+  
     } else {
 ?>
 <div class="alert alert-warning alert-dismissible">

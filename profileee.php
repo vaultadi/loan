@@ -42,7 +42,7 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
 <div class="form-group">
   <label class="col-md-4 control-label" for="Upload photo">Upload photo</label>
   <div class="col-md-6">
-    <input id="pic_path" name="pic_path" class="input-file" type="file" value ="<?php echo $user[13]; ?>">
+    <input id="pic_path" name="pic_path" class="input-file" type="file" value ="<?php echo $user[10]; ?>">
   </div>
 </div>
 
@@ -56,7 +56,7 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
      <i class="fa fa-birthday-cake"></i>
         
        </div>
-       <input id="birthdate" name="birthdate" type="text" placeholder="Date Of Birth" class="form-control input-md" value ="<?php echo $user[12]; ?>">
+       <input id="birthdate" name="birthdate" type="text" placeholder="Date Of Birth" class="form-control input-md" value ="<?php echo $user[11]; ?>">
       </div>
   
     
@@ -73,7 +73,7 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
       <i class="fa fa-male" style="font-size: 20px;"></i>
         
        </div>
-      <input id="father" name="father" type="text" placeholder="Father's name" class="form-control input-md" value ="<?php echo $user[16]; ?>">
+      <input id="father" name="father" type="text" placeholder="Father's name" class="form-control input-md" value ="<?php echo $user[13]; ?>">
 
       </div>
     
@@ -89,7 +89,7 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
       <i class="fa fa-female" style="font-size: 20px;"></i>
         
        </div>
-  <input id="mother" name="mother" type="text" placeholder="Mother's Name" class="form-control input-md" value ="<?php echo $user[17]; ?>">
+  <input id="mother" name="mother" type="text" placeholder="Mother's Name" class="form-control input-md" value ="<?php echo $user[14]; ?>">
 
       </div>
     
@@ -133,12 +133,12 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
 <div class="form-group">
   <label class="col-md-4 control-label col-xs-12" for="Permanent Address">Permanent Address</label>  
   <div class="col-md-3  col-xs-4">
-  <input id="peraddress" name="peraddress" type="text" placeholder="District" class="form-control input-md ">
+  <input id="pdistrict" name="pdistrict" type="text" placeholder="District" class="form-control input-md " value ="<?php echo $user[26]; ?>">
   </div>
 
   <div class="col-md-3 col-xs-4">
 
-  <input id="peraddress" name="peraddress" type="text" placeholder="Area" class="form-control input-md ">
+  <input id="parea" name="parea" type="text" placeholder="Area" class="form-control input-md " value ="<?php echo $user[27]; ?>">
   </div>
 
   
@@ -147,11 +147,14 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
 <div class="form-group">
   <label class="col-md-4 control-label" for="Permanent Address"></label>  
   <div class="col-md-3  col-xs-6">
-  <input id="peraddress" name="peraddress" type="text" placeholder="Street" class="form-control input-md ">
+  <input id="pstreet" name="pstreet" type="text" placeholder="Street" class="form-control input-md " value ="<?php echo $user[28]; ?>">
   
   </div>
 
-  
+  <div class="col-md-3 col-xs-4">
+
+  <input id="country" name="country" type="text" placeholder="country" class="form-control input-md " value ="<?php echo $user[29]; ?>">
+  </div>
 
   
 </div>
@@ -162,12 +165,12 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
 <div class="form-group">
   <label class="col-md-4 control-label col-xs-12" for="Temporary Address">Temporary Address</label>  
   <div class="col-md-3  col-xs-6">
-  <input id="tempaddress" name="tempaddress" type="text" placeholder="District" class="form-control input-md ">
+  <input id="tdistrict" name="tdistrict" type="text" placeholder="District" class="form-control input-md " value ="<?php echo $user[23]; ?>">
   </div>
 
   <div class="col-md-3 col-xs-4">
 
-  <input id="tempaddress" name="tempaddress" type="text" placeholder="Area" class="form-control input-md ">
+  <input id="tarea" name="tarea" type="text" placeholder="Area" class="form-control input-md " value ="<?php echo $user[24]; ?>">
   </div>
 
   
@@ -176,11 +179,14 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
 <div class="form-group">
   <label class="col-md-4 control-label" for="Temporary Address"></label>  
   <div class="col-md-3  col-xs-4">
-  <input id="tempaddress" name="tempaddress" type="text" placeholder="Street" class="form-control input-md ">
+  <input id="tstreet" name="street" type="text" placeholder="Street" class="form-control input-md " value ="<?php echo $user[25]; ?>">
   
   </div>
 
-  
+  <div class="col-md-3 col-xs-4">
+
+  <input id="country" name="country" type="text" placeholder="country" class="form-control input-md " value ="<?php echo $user[29]; ?>">
+  </div>
 
   
 </div>
@@ -197,7 +203,7 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
      <i class="fa fa-briefcase"></i>
         
        </div>
-      <input id="occupation" name="occupation" type="text" placeholder="Primary Occupation" class="form-control input-md" value ="<?php echo $user[19]; ?>">
+      <input id="occupation" name="occupation" type="text" placeholder="Primary Occupation" class="form-control input-md" value ="<?php echo $user[16]; ?>">
       </div>
   
     
@@ -213,7 +219,7 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
       <i class="fa fa-briefcase"></i>
         
        </div>
-     <input id="secoccupation" name="secoccupation" type="text" placeholder="Secondary Occupation (if any)" class="form-control input-md" value ="<?php echo $user[20]; ?>">
+     <input id="secoccupation" name="secoccupation" type="text" placeholder="Secondary Occupation (if any)" class="form-control input-md" value ="<?php echo $user[17]; ?>">
       </div>
   
     
@@ -229,7 +235,7 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
      <i class="fa fa-phone"></i>
         
        </div>
-    <input id="phone" name="phone" type="text" placeholder="Primary Phone number " class="form-control input-md" value ="<?php echo $user[21]; ?>">
+    <input id="phone" name="phone" type="text" placeholder="Primary Phone number " class="form-control input-md" value ="<?php echo $user[18]; ?>">
     
       </div>
       <div class="input-group othertop">
@@ -237,7 +243,7 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
      <i class="fa fa-mobile fa-1x" style="font-size: 20px;"></i>
         
        </div>
-    <input id="mobilenumber" name="mobilenumber" type="text" placeholder=" Secondary Phone number " class="form-control input-md" value ="<?php echo $user[8]; ?>">
+    <input id="mobilenumber" name="mobilenumber" type="text" placeholder=" Secondary Phone number " class="form-control input-md" value ="<?php echo $user[7]; ?>">
     
       </div>
   
@@ -253,7 +259,7 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
      <i class="fa fa-envelope-o"></i>
         
        </div>
-    <input id="emailid" name="emailid" type="text" placeholder="Email Address" class="form-control input-md" value ="<?php echo $user[10]; ?>">
+    <input id="emailid" name="emailid" type="text" placeholder="Email Address" class="form-control input-md" value ="<?php echo $user[9]; ?>">
     
       </div>
   
@@ -269,7 +275,7 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
      <i class="fa fa-sticky-note-o"></i>
         
        </div>
-   <input id="citizen" name="citizen" type="text" placeholder="Citizenship " class="form-control input-md" value ="<?php echo $user[22]; ?>">
+   <input id="citizen" name="citizen" type="text" placeholder="Citizenship " class="form-control input-md" value ="<?php echo $user[19]; ?>">
     
       </div>
  
@@ -316,7 +322,7 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
      <i class="fa fa-sticky-note-o"></i>
         
        </div>
-   <input id="pan" name="pan" type="text" placeholder="License No." class="form-control input-md" value ="<?php echo $user[25]; ?>">
+   <input id="pan" name="pan" type="text" placeholder="License No." class="form-control input-md" value ="<?php echo $user[22]; ?>">
     
       </div>
  
@@ -337,8 +343,8 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
 <div class="form-group">
   <label class="col-md-4 control-label" ></label>  
   <div class="col-md-4">
-  <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Submit</a>
-  <a href="#" class="btn btn-danger" value=""><span class="glyphicon glyphicon-remove-sign"></span> Clear</a>
+   <button id="submit" name="submit" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Submit</button>
+  <button id="submit" name ="submit" class="btn btn-danger" value="reset"><span class="glyphicon glyphicon-remove-sign"></span> Clear</a>
     
   </div>
 </div>
@@ -347,12 +353,15 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
 </form>
 </div>
 <div class="col-md-2 hidden-xs">
-<img src="http://websamplenow.com/30/userprofile/images/avatar.jpg" class="img-responsive img-thumbnail ">
+<img src="image/avatar.jpg" class="img-responsive img-thumbnail ">
   </div>
 
 
 </div>
    </div>
+   <?php
+   //header('Refresh: 1; URL=newlogin.php');
+   ?>
    <?php
    }
    ?>

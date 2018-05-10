@@ -32,7 +32,7 @@ include 'session.php';
 <div class="form-group">
   <label class="col-md-4 control-label" for="emailinput">PAN ID</label>  
   <div class="col-md-5">
-  <input id="pan" name="pan" type="text" placeholder="PAN ID" class="form-control input-md" required="">
+  <input id="panid" name="panid" type="text" placeholder="PAN ID" class="form-control input-md" required="">
   <span class="help-block">Please Enter your pan number</span>  
   </div>
 </div>
@@ -178,22 +178,28 @@ include 'session.php';
   <label class="col-md-4 control-label" for="selectbasic">Loan Amount</label>
   <div class="col-md-5">
     <select id="selectbasic2" name="selectbasic2" class="form-control">
-      <option value="5">$5,000</option>
-      <option value="10">$10,000</option>
-      <option value="15">$15,000</option>
-      <option value="20">$20,000</option>
-      <option value="25">$25,000</option>
-      <option value="30">$30,000</option>
-      <option value="35">$35,000</option>
-      <option value="40">$40,000</option>
-      <option value="45">$45,000</option>
-      <option value="50">$50,000</option>
-      <option value="55">$75,000</option>
-      <option value="60">$100,000</option>
+      <option value="5000">$5,000</option>
+      <option value="10000">$10,000</option>
+      <option value="15000">$15,000</option>
+      <option value="20000">$20,000</option>
+      <option value="25000">$25,000</option>
+      <option value="30000">$30,000</option>
+      <option value="35000">$35,000</option>
+      <option value="40000">$40,000</option>
+      <option value="45000">$45,000</option>
+      <option value="50000">$50,000</option>
+      <option value="55000">$75,000</option>
+      <option value="60000">$100,000</option>
     </select>
   </div>
 </div>
-
+<!--text arae-->
+​<div class="form-group">
+      <label for="comment">Detail about:</label>
+      <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+</div>
+	
+	
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="singlebutton"></label>
@@ -210,13 +216,13 @@ include 'session.php';
 		if (mysqli_num_rows(mysqli_query($conn, $sql)) == 0) {
 			/*Generating unique formID*/
 			$formid = 'frm' . substr(strip_tags($_POST["zipinput"], -4),0) . '' . substr(strip_tags($_POST["firstnameinput"], 0, 2)) . '' . substr(strip_tags($_POST["cityinput"], 0, 2)) . '' . date('His', time());
-			$query = "INSERT INTO application (formid,firstnameinput,lastnameinput,streetinput,cityinput,statebasic,zipinput,emailinput,birthinput,radios,selectbasic1,selectbasic2)
+			$query = "INSERT INTO application (formid,firstnameinput,lastnameinput,streetinput,cityinput,statebasic,zipinput,emailinput,birthinput,radios,selectbasic1,selectbasic2,comment)
 			VALUES ('".strtoupper($formid) . "' , '".strip_tags($_POST["firstnameinput"])."' , '".strip_tags($_POST["lastnameinput"])."' , '".strip_tags($_POST["streetinput"])."' , '".strip_tags($_POST["cityinput"])."' , 
 			'".strip_tags($_POST["statebasic"])."' , '".strip_tags($_POST["zipinput"])."' , '".strip_tags($_POST["emailinput"])."' , '".strip_tags($_POST["birthinput"])."' , '".strip_tags($_POST["radios"])."' , 
-			'".strip_tags($_POST["selectbasic1"])."' , '".strip_tags($_POST["selectbasic2"])."')";
+			'".strip_tags($_POST["selectbasic1"])."' , '".strip_tags($_POST["selectbasic2"])."', '".strip_tags($_POST["comment"])."')";
 					     
 						 mysqli_query($conn, $query);
-						 echo "Error: " . $sql . "<br>" . $conn->error;
+						// echo "Error: " . $sql . "<br>" . $conn->error;
 ?>		
 <div class="alert alert-success alert-dismissible">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

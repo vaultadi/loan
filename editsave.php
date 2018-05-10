@@ -18,10 +18,7 @@ if (isset($_POST))
     }
 
     $sql8 = "UPDATE users SET name='" . $_POST['name'] . "' ,
-							 middlenam='" . $_POST["middlename"] . "',
-							 lastname='" . $_POST["lastname"] . "',
 							 birthdate='" . $_POST["birthdate"] . "',
-							 gender='" . $_POST["gender"] . "',
 							 mobilenumber='" . $_POST["mobilenumber"] . "',
 							 emailid='" . $_POST["emailid"] . "',
 						     father='" . $_POST["father"] . "',
@@ -30,18 +27,23 @@ if (isset($_POST))
 							 changetime='" . time() . "',								 
    				             occupation='" . $_POST["occupation"] . "',
         			         secoccupation='" . $_POST["secoccupation"] . "',
-   				             city='" . $_POST["city"] . "',
-   				             country='" . $_POST["country"] . "',				
-   				             department='" . $dept . "',
+   				             tarea='" . $_POST["tarea"] . "',
+   				             tdistrict='" . $_POST["tdistrict"] . "',
+							tstreet='" . $_POST["street"] . "',
+							parea='" . $_POST["parea"] . "',
+							pdistrict='" . $_POST["pdistrict"] . "',
+							pstreet='" . $_POST["pstreet"] . "',
    				             phone='" . $_POST["phone"] . "',
+							 pan='" . $_POST["pan"] . "',
+							 country='" . $_POST["country"] . "',
    				             profile_pic_path	='" . $_FILES["pic_path"]["name"] . "'							 
    				             WHERE userid='" . $_GET['id'] . "'";
     mysqli_query($conn, $sql8);
     echo 'Details updated successfully !!';
     echo '<br>';
-    header('Refresh: 1; URL=profileee.php');
+    header('Refresh: 1; URL=view.php');
 }
 else
 {
-    header('Refresh: 1; URL=UserLogin.php');
+    header('Refresh: 1; URL=newlogin.php');
 }

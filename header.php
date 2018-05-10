@@ -12,6 +12,7 @@ include 'Session.php';
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="ss.css">
 </head>
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
   <div class="container">
@@ -27,7 +28,7 @@ include 'Session.php';
 
     <div class="collapse navbar-collapse" id="navigation">
       <ul class="nav navbar-nav">
-	          <li><a href="ContactUs.php">Contact Us</a></li>
+	          <li><a href="contact.php">Contact Us</a></li>
 	          <?php if (!empty($_SESSION)) { ?>
 			  <li><a href="s.php">Home</a></li>
 			  <li><a href="view.php">Profile</a></li>
@@ -35,7 +36,7 @@ include 'Session.php';
 			  <?php } ?>
 		      <?php if ((!empty($_SESSION)) && ($_SESSION['rolei'] == 'banker')) { ?>
 			  <li><a href="UserListing.php">show customer</a></li>
-			  <li><a href="AppointmentList.php">loanlist</a></li>
+			  <li><a href="viewapp.php">loanlist</a></li>
 	          <?php
 } ?>
 			  <?php if ((!empty($_SESSION)) && ($_SESSION['rolei'] == 'customer'))
