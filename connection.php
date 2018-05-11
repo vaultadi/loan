@@ -53,6 +53,7 @@ if (mysqli_query($conn, $sql1)) {
 
 $sql2 = "create table Session (
 	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	userid VARCHAR(255) NOT NULL,
 	emailid VARCHAR(255) NOT NULL,
 	passwordinput VARCHAR(255) NOT NULL,
 	browser_detail VARCHAR(255) NOT NULL,
@@ -69,6 +70,7 @@ if (mysqli_query($conn, $sql2)) {
 	
 $sql3 = "create table application(
 		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		userid VARCHAR (255) NOT NULL,
 		formid VARCHAR(255) NOT NULL,
 		firstnameinput VARCHAR(255) NOT NULL,
 		lastnameinput VARCHAR(255),
@@ -105,3 +107,23 @@ if (mysqli_query($conn, $sql4)) {
     //echo '<br>';
    // echo ("application Table not created" . mysqli_error($conn));
 }
+
+$sql5 = "create table contact(
+		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+		userid VARCHAR(50),
+		name VARCHAR(50),
+		formid VARCHAR(50),
+		cardnumber VARCHAR(50),
+		month VARCHAR(50),
+		year VARCHAR(50),
+		cvv VARCHAR(50),
+		money VARCHAR(50),
+		time VARCHAR))";
+if (mysqli_query($conn, $sql4)) {
+    //echo "application Table created";
+} else {
+    //echo '<br>';
+   // echo ("application Table not created" . mysqli_error($conn));
+}
+	
+		

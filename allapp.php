@@ -10,61 +10,23 @@ $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
+    while($row = mysqli_fetch_assoc($result)) 
+	{
         
 		//echo "id: " . $row["id"]. " - Name: " . $row["cityinput"]. " " . $row["zipinput"]. "<br>";
     ?>
 		
-		<form action="status.php?id=<?php echo $row['formid'] ?>" enctype="multipart/form-data" method="post">
 		
-		<?php
-		if($row['status']=="reject")
-		{
-		?>
-	    <div class="alert alert-danger alert-dismissible">
+		
+	    <div class="alert alert-info alert-dismissible">
 		<?php echo $row["formid"]."        "  . $row["firstnameinput"]."       " .$row["panid"]; ?>
-		<button type="submit" name="approve" id="approve" class="btn btn-sm btn-success pull-right btn-space"> Approve</button>
-		<button type="submit" name="pending" id="pending" class="btn btn-sm btn-warning pull-right btn-space"> Pending</button>
-		<!--<button type="submit" name="reject" id="reject" class="btn btn-sm btn-danger pull-right btn-space"> Reject</button>-->
+		<button type="submit" name="info" id="info" class="btn btn-sm btn-success pull-right btn-space" href="#" data-toggle="modal" data-target="#myModal"> Info</button
 		<?php
-		}elseif($row['status']=="pending")
-		{
-		?>
+				}
+		
 
-		<div class="alert alert-warning alert-dismissible">
-		<?php echo $row["formid"]."        "  . $row["firstnameinput"]."       " .$row["panid"]; ?>
-		<button type="submit" name="reject" id="reject" class="btn btn-sm btn-danger pull-right btn-space">Reject</button>
-		<button type="submit" name="approve" id="approve" class="btn btn-sm btn-success pull-right btn-space"> Approve</button>
-		<?php
-		}elseif($row['status']=="approve")
-		{
-		?>
-
-		<div class="alert alert-success alert-dismissible">
-		<?php echo $row["formid"]."        "  . $row["firstnameinput"]."       " .$row["panid"]; ?>
-		<!--<button type="submit" name="approve" id="approve" class="btn btn-sm btn-success pull-right btn-space"> Approve</button>-->
-		<?php
-		}else
-		{
-		?>
-		
-		<div class="alert alert-info alert-dismissible">
-		<?php echo $row["formid"]."        "  . $row["firstnameinput"]."       " .$row["panid"]; ?>
-		<button type="submit" name="approve" id="approve" class="btn btn-sm btn-success pull-right btn-space"> Approve</button>
-		<button type="submit" name="pending" id="pending" class="btn btn-sm btn-warning pull-right btn-space"> Pending</button>
-		<button type="submit" name="reject" id="reject" class="btn btn-sm btn-danger pull-right btn-space"> Reject</button>
-		<!--<button type="submit" name="info" id="info" class="btn btn-sm btn-info pull-right btn-space"> Info</button>-->
-		<?php
-		}
-		?>
-		
-		
-		
-		
-		<?php echo "<button type='submit' class='btn btn-sm btn-primary pull-right btn-space' data-toggle='modal' data-target='#myModal'>Application</a>"; ?>
-		
+	?>
 		</div>
-		</form>
 
 	<!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -90,7 +52,7 @@ if (mysqli_num_rows($result) > 0) {
                       					  
                       <tr>
                         <td>Name:</td>
-                        <td> <?php echo $row['firstnameinput'] . ', ' . $row['lastnameinput']; ?></td>
+                        <td> <?php echo $row['name'] . ', ' . $row['father']; ?></td>
                       </tr>
                       <tr>
                         <td>Date of Birth:</td>
@@ -158,5 +120,5 @@ if (mysqli_num_rows($result) > 0) {
 	<?php
 	
 }
-}
 
+?>

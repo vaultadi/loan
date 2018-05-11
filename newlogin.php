@@ -28,6 +28,11 @@ if (empty($_SESSION))
                                         <input id="passwordinput" type="password" class="form-control" name="passwordinput" placeholder="password">
                                     </div>
                                     
+									
+									<div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input id="userid" type="text" class="form-control" name="userid" placeholder="user ID">
+                                    </div>
 
                                 
 									<!-- Select Multiple -->
@@ -71,15 +76,16 @@ if (empty($_SESSION))
         </div>
 <?php
 
-if (isset($_POST["passwordinput"]) && isset($_POST["emailid"]) && isset($_POST["rolei"]))
+if (isset($_POST["passwordinput"]) && isset($_POST["emailid"]) && isset($_POST["rolei"]) && isset($_POST["userid"]))
 {
 
-    $sql4 = "SELECT emailid from Users where passwordinput='" . strip_tags($_POST["passwordinput"]) . "' AND emailid='" . strip_tags($_POST["emailid"]) . "' AND rolei='" . $_POST["rolei"] . "'";
+    $sql4 = "SELECT emailid from Users where passwordinput='" . strip_tags($_POST["passwordinput"]) . "' AND emailid='" . strip_tags($_POST["emailid"]) . "' AND userid='" . strip_tags($_POST["userid"]) . "' AND rolei='" . $_POST["rolei"] . "'";
 	
     if (mysqli_num_rows(mysqli_query($conn, $sql4)) >= 1)
 		{
 			$_SESSION['emailid'] = strip_tags($_POST["emailid"]);
 			$_SESSION['passwordinput'] = strip_tags($_POST["passwordinput"]);
+			$_SESSION['userid'] = strip_tags($_POST["userid"]);
 			$_SESSION['rolei'] = $_POST["rolei"];
 			$_SESSION['time'] = time();
 		
@@ -89,16 +95,17 @@ if (isset($_POST["passwordinput"]) && isset($_POST["emailid"]) && isset($_POST["
 		
 
             /*insert into session table*/
-            $query = "INSERT INTO Session (emailid, passwordinput, browser_detail, client_ip, logintime)VALUES ('" . strip_tags($_POST["emailid"]) . "','" . strip_tags($_POST["passwordinput"]) . "','" . $_SERVER['HTTP_USER_AGENT'] . "','" . $_SERVER['REMOTE_ADDR'] . "','" . $_SESSION['time'] . "')";
+            $query = "INSERT INTO Session (userid,emailid, passwordinput, browser_detail, client_ip, logintime)VALUES ('".strtoupper($_POST["userid"]) . "','" . strip_tags($_POST["emailid"]) . "','" . strip_tags($_POST["passwordinput"]) . "','" . $_SERVER['HTTP_USER_AGENT'] . "','" . $_SERVER['REMOTE_ADDR'] . "','" . $_SESSION['time'] . "')";
             mysqli_query($conn, $query);
         }
 		else
         {
 
             $sql7 = "UPDATE Session SET logintime='" . time() . "' ,
-                               			browser_detail='" . $_SERVER['HTTP_USER_AGENT'] . "',
+										browser_detail='" . $_SERVER['HTTP_USER_AGENT'] . "',
 										client_ip='" . $_SERVER['REMOTE_ADDR'] . "' 
 										WHERE emailid='" . $_SESSION['emailid'] . "' AND 
+										userid='" . $_SESSION['userid'] . "' AND
 										passwordinput='" . $_SESSION['passwordinput'] . "'";
 
             mysqli_query($conn, $sql7);

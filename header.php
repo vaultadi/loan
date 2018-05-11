@@ -1,6 +1,6 @@
 <?php
 include 'connection.php';
-include 'Session.php';
+include 'session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +11,7 @@ include 'Session.php';
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/register.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
    <link rel="stylesheet" href="ss.css">
 </head>
@@ -29,11 +30,18 @@ include 'Session.php';
     <div class="collapse navbar-collapse" id="navigation">
       <ul class="nav navbar-nav">
 	          <li><a href="contact.php">Contact Us</a></li>
+			  <li><a href="home.php">Home</a></li>
 	          <?php if (!empty($_SESSION)) { ?>
-			  <li><a href="s.php">Home</a></li>
+			  
 			  <li><a href="view.php">Profile</a></li>
 			  
 			  <?php } ?>
+			  <?php if ((!empty($_SESSION)) && ($_SESSION['rolei'] == 'admin'))
+{ ?>
+				<li><a href="adminview.php">All users</a></li>
+				<li><a href="allapp.php">All application</a></li>
+<?php
+}?>
 		      <?php if ((!empty($_SESSION)) && ($_SESSION['rolei'] == 'banker')) { ?>
 			  <li><a href="UserListing.php">show customer</a></li>
 			  <li><a href="viewapp.php">loanlist</a></li>
@@ -41,7 +49,8 @@ include 'Session.php';
 } ?>
 			  <?php if ((!empty($_SESSION)) && ($_SESSION['rolei'] == 'customer'))
 { ?>
-			  <li><a href="UserListing.php"></a></li>
+			  <li><a href="on_working.php">Application list</a></li>
+			  
 			  <li><a href="apply.php">Apply</a></li>
               <?php
 }

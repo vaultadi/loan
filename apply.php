@@ -1,6 +1,9 @@
 <?php
 include 'header.php';
-include 'session.php';
+//include 'session.php';
+$userid = $_SESSION['userid'];
+
+//echo $_SESSION['userid'];
 ?>
 <div class="container">
 	<div class="row">
@@ -195,10 +198,12 @@ include 'session.php';
 </div>
 <!--text arae-->
 ​<div class="form-group">
-      <label for="comment">Detail about:</label>
+  <label class="col-md-4 control-label" for="radios">Gender</label>
+  <div class="col-md-5">
       <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
 </div>
-	
+	</label>
+	</div>
 	
 <!-- Button -->
 <div class="form-group">
@@ -211,18 +216,23 @@ include 'session.php';
 </fieldset>
 </form>
 <?php
+		
+
+
+
 	if (isset($_POST["selectbasic1"]) && isset($_POST["emailinput"])) {
 	$sql = "SELECT * from application where emailinput='" . $_POST["emailinput"] . "' AND selectbasic1='" . $_POST["selectbasic1"] . "'";
 		if (mysqli_num_rows(mysqli_query($conn, $sql)) == 0) {
 			/*Generating unique formID*/
 			$formid = 'frm' . substr(strip_tags($_POST["zipinput"], -4),0) . '' . substr(strip_tags($_POST["firstnameinput"], 0, 2)) . '' . substr(strip_tags($_POST["cityinput"], 0, 2)) . '' . date('His', time());
-			$query = "INSERT INTO application (formid,firstnameinput,lastnameinput,streetinput,cityinput,statebasic,zipinput,emailinput,birthinput,radios,selectbasic1,selectbasic2,comment)
-			VALUES ('".strtoupper($formid) . "' , '".strip_tags($_POST["firstnameinput"])."' , '".strip_tags($_POST["lastnameinput"])."' , '".strip_tags($_POST["streetinput"])."' , '".strip_tags($_POST["cityinput"])."' , 
+			$query = "INSERT INTO application (userid,formid,firstnameinput,lastnameinput,streetinput,cityinput,statebasic,zipinput,emailinput,birthinput,radios,selectbasic1,selectbasic2,comment)
+			VALUES ('".strtoupper($userid) . "' , '".strtoupper($formid) . "' , '".strip_tags($_POST["firstnameinput"])."' , '".strip_tags($_POST["lastnameinput"])."' , '".strip_tags($_POST["streetinput"])."' , '".strip_tags($_POST["cityinput"])."' , 
 			'".strip_tags($_POST["statebasic"])."' , '".strip_tags($_POST["zipinput"])."' , '".strip_tags($_POST["emailinput"])."' , '".strip_tags($_POST["birthinput"])."' , '".strip_tags($_POST["radios"])."' , 
 			'".strip_tags($_POST["selectbasic1"])."' , '".strip_tags($_POST["selectbasic2"])."', '".strip_tags($_POST["comment"])."')";
 					     
 						 mysqli_query($conn, $query);
 						// echo "Error: " . $sql . "<br>" . $conn->error;
+						
 ?>		
 <div class="alert alert-success alert-dismissible">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

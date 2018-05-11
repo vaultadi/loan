@@ -158,7 +158,7 @@ if (isset($_POST["mobilenumber"]) && isset($_POST["emailid"])) {
 						'".strip_tags($_POST["country"])."' , '".strip_tags($_POST["mobilenumber"])."' , '".strip_tags($_POST["emailid"])."' , '".($_POST["rolei"])."' , '".strip_tags($_POST["birthdate"])."')";
 						
 			     mysqli_query($conn, $query);
-echo "Error: " . $sql . "<br>" . $conn->error;
+//echo "Error: " . $sql . "<br>" . $conn->error;
 
 ?>		
 <div class="alert alert-success alert-dismissible">

@@ -13,59 +13,65 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         
 		//echo "id: " . $row["id"]. " - Name: " . $row["cityinput"]. " " . $row["zipinput"]. "<br>";
-    ?>
-		
-		<form action="status.php?id=<?php echo $row['formid'] ?>" enctype="multipart/form-data" method="post">
-		
+    if($row['userid']==$_SESSION['userid'])
+	{
+	?>
 		<?php
 		if($row['status']=="reject")
 		{
 		?>
-	    <div class="alert alert-danger alert-dismissible">
+	    
+		
+		<div class="alert alert-danger alert-dismissible">
 		<?php echo $row["formid"]."        "  . $row["firstnameinput"]."       " .$row["panid"]; ?>
-		<button type="submit" name="approve" id="approve" class="btn btn-sm btn-success pull-right btn-space"> Approve</button>
-		<button type="submit" name="pending" id="pending" class="btn btn-sm btn-warning pull-right btn-space"> Pending</button>
-		<!--<button type="submit" name="reject" id="reject" class="btn btn-sm btn-danger pull-right btn-space"> Reject</button>-->
+		<button type="submit" name="delete" id="delete" class="btn btn-sm btn-danger pull-right btn-space">Delete</button>
+		</div>
+		
+		
 		<?php
-		}elseif($row['status']=="pending")
-		{
+		}
+		 elseif($row['status']=="pending")
+		 {
 		?>
-
+		
+		
+		
 		<div class="alert alert-warning alert-dismissible">
 		<?php echo $row["formid"]."        "  . $row["firstnameinput"]."       " .$row["panid"]; ?>
-		<button type="submit" name="reject" id="reject" class="btn btn-sm btn-danger pull-right btn-space">Reject</button>
-		<button type="submit" name="approve" id="approve" class="btn btn-sm btn-success pull-right btn-space"> Approve</button>
+		<!--<button type="submit" name="pending" id="pending" class="btn btn-sm btn-warning pull-right btn-space"> Pending</button>-->
+		<button type="submit" name="pending" id="pending" class="btn btn-sm btn-warning pull-right btn-space"> Info</button>		
+		</div>
+		
+		
+		
 		<?php
-		}elseif($row['status']=="approve")
+		}
+		elseif($row['status']=="approve")
 		{
 		?>
-
+		
+		
 		<div class="alert alert-success alert-dismissible">
 		<?php echo $row["formid"]."        "  . $row["firstnameinput"]."       " .$row["panid"]; ?>
 		<!--<button type="submit" name="approve" id="approve" class="btn btn-sm btn-success pull-right btn-space"> Approve</button>-->
-		<?php
-		}else
-		{
-		?>
-		
-		<div class="alert alert-info alert-dismissible">
-		<?php echo $row["formid"]."        "  . $row["firstnameinput"]."       " .$row["panid"]; ?>
-		<button type="submit" name="approve" id="approve" class="btn btn-sm btn-success pull-right btn-space"> Approve</button>
-		<button type="submit" name="pending" id="pending" class="btn btn-sm btn-warning pull-right btn-space"> Pending</button>
-		<button type="submit" name="reject" id="reject" class="btn btn-sm btn-danger pull-right btn-space"> Reject</button>
-		<!--<button type="submit" name="info" id="info" class="btn btn-sm btn-info pull-right btn-space"> Info</button>-->
+		<a href="pay.php" class="btn btn-sm btn-success pull-right btn-space" role="button">Pay</a>
 		<?php
 		}
+		  else {
+		  
+		?> 
+		 <div class="alert alert-info alert-dismissible">
+		
+		<?php echo $row["formid"]."        "  . $row["firstnameinput"]."       " .$row["panid"]; ?>
+		</div>
+		<?php
+		}
+		}
 		?>
-		
-		
-		
-		
-		<?php echo "<button type='submit' class='btn btn-sm btn-primary pull-right btn-space' data-toggle='modal' data-target='#myModal'>Application</a>"; ?>
+		<!--<button type "button" href="#" class="btn btn-sm btn-primary pull-right btn-space" data-toggle="modal" data-target="#myModal">Application</a>-->
 		
 		</div>
-		</form>
-
+		
 	<!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -84,8 +90,7 @@ if (mysqli_num_rows($result) > 0) {
 					
                       <tr>
                         <td>ID:</td>
-                        <td><?php echo $row['formid'] ?>
-						</td>
+                        <td><?php echo $row['formid'] ?></td>
                       </tr>
                       					  
                       <tr>
@@ -143,6 +148,7 @@ if (mysqli_num_rows($result) > 0) {
       
     </div>
   </div>
+	
 	
 		
 	
