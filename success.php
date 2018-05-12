@@ -9,6 +9,7 @@ if (!empty($_SESSION))
     <strong>Success!</strong> You have Logged in successfully !!
 </div>
 <?php
+
 }
 else
 {

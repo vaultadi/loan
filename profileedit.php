@@ -1,6 +1,6 @@
 <?php
-include 'header.php';
-include 'session.php';
+//include 'header.php';
+//include 'session.php';
 ?>
 <div class="container">
     <h1>Edit Profile</h1>
@@ -25,7 +25,7 @@ include 'session.php';
         </div>
         <h3>Personal info</h3>
         
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" action="test.php" role="form">
           <div class="form-group">
             <label class="col-lg-3 control-label">First name:</label>
             <div class="col-lg-8">

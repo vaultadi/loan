@@ -1,7 +1,20 @@
 <?php
 include 'header.php';
 include 'connection.php';
-?>
+$conn = mysqli_connect($dbhost, $username, $password, $dbname);
+$sql7 = "SELECT * from application";
+if (!empty($_SESSION))
+{
+if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
+    {
+        $user = mysqli_fetch_row(mysqli_query($conn, $sql7));
+		
+	}
+	}
+	$formid=$user[2];
+	$name=$user[3];
+	$userid=$user[1];
+?>	
 <style>
 .panel-title {display: inline;font-weight: bold;}
 .checkbox.pull-right { margin: 0; }
@@ -16,21 +29,16 @@ include 'connection.php';
                     <h3 class="panel-title">
                         Payment Details
                     </h3>
-                    <div class="checkbox pull-right">
-                        <label>
-                            <input type="checkbox" />
-                            Remember
-                        </label>
-                    </div>
+          
                 </div>
                 <div class="panel-body">
-                    <form role="form">
+                    <form method="post" action="test.php">
                     <div class="form-group">
                         <label for="cardNumber">
                             CARD NUMBER</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-credit-card"></span></span>
-							<input type="text" class="form-control" id="cardNumber" name="cardnumber" placeholder="Valid Card Number"
+							<input type="text" class="form-control" id="cardnumber" name="cardnumber" placeholder="Valid Card Number"
                                 required autofocus />
                             
                         </div>
@@ -60,31 +68,28 @@ include 'connection.php';
                             ENTER AMOUNT</label>
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
-							<input type="text" class="form-control" id="money" name="money" placeholder="Enter Amount"
-                                required autofocus />
+							<input type="text" class="form-control" id="money" name="money" placeholder="Enter Amount" required autofocus />
                             
                         </div>
                     </div>
                     </form>
                 </div>
             </div>
-            <ul class="nav nav-pills nav-stacked">
-                <!--<li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd"></span>4200</span> Final Payment</a>-->
-                </li>
-            </ul>
-            <br/>
-             <button id="submit" name="submit" class="btn btn-success btn-lg btn-block">PAY</button>
+            <br>
+             <button id="submitButton" input type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> pay</button>
     </div>
 </div>
 <?php
 
 if (isset($_POST["cardnumber"]) && isset($_POST["year"])) 
 {
-    $sql = "SELECT * from pay where cardnumber='" . $_POST["cardnumber"] . "' AND year='" . $_POST["year"] . "'";
-    if (mysqli_num_rows(mysqli_query($conn, $sql)) == 0) {
-		$query = "INSERT INTO pay (userid,name,cardnumber,month,year,cvv,money,time)
-					VALUES ('".strtoupper($userid) . "' , '".strip_tags($_POST["name"])."' , '".strip_tags($_POST["cardnumber"])."','".strip_tags($_POST["month"])."',
-					'".strip_tags($_POST["year"])."' ,'".strip_tags($_POST["cvv"])."' , '".strip_tags($_POST["money"])."' , '" . date('Y-m-d H:i:s') . "')";   
+   // $sql = "SELECT * from pay where cardnumber='" . $_POST["cardnumber"] . "' AND year='" . $_POST["year"] . "'";
+    if (!empty($_SESSION)) {
+		
+		
+		$query = "INSERT INTO pay (userid,formid,name,cardnumber,month,year,cvv,money,time)
+					VALUES ('".strtoupper($userid) . "' ,'".strtoupper($formid) . "' , '" . $name . "' , '".strip_tags($_POST["cardnumber"])."','".strip_tags($_POST["month"])."',
+					'".strip_tags($_POST["year"])."' ,'".strip_tags($_POST["cvv"])."' , '".strip_tags($_POST["money"])."' , '" . time() . "')";   
 			 mysqli_query($conn, $query);
 //echo "Error: " . $sql . "<br>" . $conn->error;
 
@@ -95,7 +100,8 @@ if (isset($_POST["cardnumber"]) && isset($_POST["year"]))
   </div>
   <?php
   
-    } else {
+    } 
+	else {
 ?>
 <div class="alert alert-danger alert-dismissible">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

@@ -1,6 +1,6 @@
 <?php
-include ('header.php');
-include ('Connection.php');
+include 'header.php';
+include 'Connection.php';
 $conn = mysqli_connect($dbhost, $username, $password, $dbname);
 
 $sql = "SELECT * FROM application";
@@ -17,17 +17,14 @@ if (mysqli_num_rows($result) > 0) {
     ?>
 		
 		
-		
 	    <div class="alert alert-info alert-dismissible">
 		<?php echo $row["formid"]."        "  . $row["firstnameinput"]."       " .$row["panid"]; ?>
-		<button type="submit" name="info" id="info" class="btn btn-sm btn-success pull-right btn-space" href="#" data-toggle="modal" data-target="#myModal"> Info</button
-		<?php
-				}
-		
-
-	?>
+		<button type="submit" name="info" id="info" class="btn btn-sm btn-success pull-right btn-space" href="#" data-toggle="modal" data-target="#myModal"> Info</button>
 		</div>
 
+	<?php
+	}
+	?>	
 	<!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -40,58 +37,59 @@ if (mysqli_num_rows($result) > 0) {
         </div>
         <div class="modal-body">
           <p>     
+		  
 		        <div class="table-responsive">
                   <table class="table table-user-information table-bordered">
                     <tbody>					
 					
                       <tr>
                         <td>ID:</td>
-                        <td><?php echo $row['formid'] ?>
+                        <td><?php echo $row[2] ?>
 						</td>
                       </tr>
                       					  
                       <tr>
                         <td>Name:</td>
-                        <td> <?php echo $row['name'] . ', ' . $row['father']; ?></td>
+                        <td> <?php echo $row[3] . ', ' . $row[4] ?></td>
                       </tr>
                       <tr>
                         <td>Date of Birth:</td>
-                        <td><?php echo $row['birthinput'] ?></td>
+                        <td><?php echo $row[11] ?></td>
                       </tr>
                       <tr>
                         <td>Gender:</td>
-                        <td><?php echo $row['radios'] ?></td>
+                        <td><?php echo $row[12] ?></td>
                       </tr>
                       <tr>
                         <td>ZIP Code:</td>
-                        <td><?php echo $row['zipinput'] ?></td>
+                        <td><?php echo $row["zipinput"] ?></td>
                       </tr>
                       <tr>
                         <td>PAN No:</td>
-                        <td><?php echo $row['panid']?></td>
+                        <td><?php echo $row["panid"]?></td>
                       </tr>					  
                       <tr>
                         <td>Stree Name:</td>
-                        <td><?php echo $row['streetinput']?></td>
+                        <td><?php echo $row["streetinput"]?></td>
                       </tr>					  
                       <tr>
                         <td>Address:</td>
-                        <td><?php echo $row['statebasic'] . ' ,' . $row['cityinput'] ?></td>
+                        <td><?php echo $row["statebasic"] . ' ,' . $row["cityinput"] ?></td>
                       </tr>			  
                       <tr>
                         <td>Email:</td>
-                        <td><a href="mailto:<?php echo $row['emailinput'] ?>"><?php echo $row['emailinput'] ?></a></td>
+                        <td><a href="mailto:<?php echo $row["emailinput"] ?>"><?php echo $row["emailinput"] ?></a></td>
                       </tr>
 					  <tr>
                         <td>Loan amount:</td>
                         <td>
-						   <?php echo $row['selectbasic1'] ?> <span class="glyphicon glyphicon-tasks"></span><br><br>
-						   <?php echo $row['selectbasic2'] ?> <span class="glyphicon glyphicon-usd"></span>
+						   <?php echo $row["selectbasic1"] ?> <span class="glyphicon glyphicon-tasks"></span><br><br>
+						   <?php echo $row["selectbasic2"] ?> <span class="glyphicon glyphicon-usd"></span>
                         </td>    
                       </tr>
                      <tr>
                         <td>Detail:</td>
-                        <td><?php echo $row['comment']?></td>
+                        <td><?php echo $row["comment"]?></td>
                       </tr>
                     </tbody>
                   </table>
@@ -111,9 +109,10 @@ if (mysqli_num_rows($result) > 0) {
 	<?php
 	}
 
-	} else {
+	}
+	else 
+	{
     ?>
-	//echo "0 results";
 	<div class="alert alert-success">
   <strong>OOOPs</strong> Not any application available
 </div>
@@ -122,3 +121,4 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 ?>
+

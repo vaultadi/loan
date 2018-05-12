@@ -13,7 +13,7 @@ include 'session.php';
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="js/register.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-   <link rel="stylesheet" href="ss.css">
+   <link rel="stylesheet" href="/css/ss.css">
 </head>
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
   <div class="container">
@@ -39,7 +39,8 @@ include 'session.php';
 			  <?php if ((!empty($_SESSION)) && ($_SESSION['rolei'] == 'admin'))
 { ?>
 				<li><a href="adminview.php">All users</a></li>
-				<li><a href="allapp.php">All application</a></li>
+				<li><a href="test2.php">All application</a></li>
+				<li><a href="feed.php">Feedback</a></li>
 <?php
 }?>
 		      <?php if ((!empty($_SESSION)) && ($_SESSION['rolei'] == 'banker')) { ?>
@@ -50,7 +51,7 @@ include 'session.php';
 			  <?php if ((!empty($_SESSION)) && ($_SESSION['rolei'] == 'customer'))
 { ?>
 			  <li><a href="on_working.php">Application list</a></li>
-			  
+			  <li><a href="/form/" download="personal_loan_application_form.pdf">Offline Apply</a></li>
 			  <li><a href="apply.php">Apply</a></li>
               <?php
 }

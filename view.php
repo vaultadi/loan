@@ -24,13 +24,13 @@ if (!empty($_SESSION))
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="image/<?php
-        if (empty($user[12]))
+        if (empty($user[10]))
         {
             echo 'avatar.jpg';
         }
         else
         {
-            echo $user[12];
+            echo $user[10];
         }
 ?>" class="img-round img-responsive img-thumbnail"> </div>
                 

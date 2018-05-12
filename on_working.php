@@ -157,7 +157,6 @@ if (mysqli_num_rows($result) > 0) {
 
 	} else {
     ?>
-	//echo "0 results";
 	<div class="alert alert-success">
   <strong>OOOPs</strong> Not any application available
 </div>

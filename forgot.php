@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+include 'connection.php';
 if (empty($_SESSION))
 {
 ?>
@@ -15,7 +16,7 @@ if (empty($_SESSION))
                   <p>You can reset your password here.</p>
                   <div class="panel-body">
     
-                    <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+                    <form id="fpassword" autocomplete="off" method="post">
     
                       <div class="form-group">
                         <div class="input-group">
@@ -24,8 +25,13 @@ if (empty($_SESSION))
                         </div>
 						<br>
 						<div class="input-group">
+						  <span class="input-group-addon"><i class="glyphicon glyphicon-tags color-blue"></i></span>
+							<input id="userid" name="userid" placeholder="USER ID" class="form-control"  type="text">
+                      </div>
+					  <br>
+						<div class="input-group">
 						  <span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
-							<input id="passwordinput" name="passwordinput" placeholder="enter password" class="form-control"  type="password">
+							<input id="passwordinput" name="passwordinput" placeholder="enter new password" class="form-control"  type="password">
                       </div>
 					  <br>
 					  <div class="input-group">
@@ -34,10 +40,10 @@ if (empty($_SESSION))
                       </div>
 					  </div>
                       <div class="form-group">
-                        <button id="submitButton" input type="submit" class="btn btn-lg btn-block"><span class="glyphicon glyphicon-log-in"></span> Reset</button>
+                        <button id="submitButton" input type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Password Change</button>
                       </div>
                       
-                      <input type="hidden" class="hide" name="token" id="token" value=""> 
+                   
                     </form>
     
                   </div>
@@ -47,30 +53,31 @@ if (empty($_SESSION))
           </div>
 	</div>
 </div>
- <?php
+<?php
 }
 else
 {
     //header("Location: ForgotPassword.php");
    
-}
+  }
 //include ('footer.php');
 ?>
 
 <?php
 /**
- * Validating email & mobile number exist in User table
+ * Validating email & user id exist in User table
  */
-if (isset($_POST["emailid"]) && isset($_POST["passowrdinput"]) && isset($_POST["confirm_password"]))
+if (isset($_POST["emailid"]) && isset($_POST["userid"]) && isset($_POST["passowrdinput"]) && isset($_POST["confirm_password"]))
 {
-    $sql = "SELECT * from Users WHERE emailid='" . $_POST["emailid"] . "'";
+    $sql = "SELECT * from Users where emailid='" . $_POST["emailid"] . "' AND userid='" . $_POST["usserid"] . "' ";
     if (mysqli_num_rows(mysqli_query($conn, $sql)) >= 1)
-    {
+    {  
         /*Updating password value*/
-        $sql8 = "UPDATE Users SET passwordinput='" .$_POST['passwordinput'] . "' , 
+       $sql8 = "UPDATE Users SET passwordinput='" .$_POST['passwordinput'] . "' , 
 		                          confirm_password='" . $_POST['confirm_password'] . "' ,
 								  changetime='" . time() . "' 
-								  WHERE emailid='" . $_POST['emailid'] . "'";
+								  WHERE emailid='" . $_POST['emailid'] . "' AND 
+								  userid='" . $_POST['userid'] . "'";
 
         mysqli_query($conn, $sql8);
 		
@@ -92,3 +99,4 @@ if (isset($_POST["emailid"]) && isset($_POST["passowrdinput"]) && isset($_POST["
 		<?php
     }
 }
+

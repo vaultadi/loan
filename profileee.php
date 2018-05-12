@@ -344,7 +344,7 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
   <label class="col-md-4 control-label" ></label>  
   <div class="col-md-4">
    <button id="submit" name="submit" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Submit</button>
-  <button id="submit" name ="submit" class="btn btn-danger" value="reset"><span class="glyphicon glyphicon-remove-sign"></span> Clear</a>
+  <button id="submit" type="reset" name ="submit" class="btn btn-danger" value="reset"><span class="glyphicon glyphicon-remove-sign"></span> Clear</a>
     
   </div>
 </div>
@@ -353,7 +353,16 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
 </form>
 </div>
 <div class="col-md-2 hidden-xs">
-<img src="image/avatar.jpg" class="img-responsive img-thumbnail ">
+<img class="img-responsive img-thumbnail " src="image/<?php
+        if (empty($user[10]))
+        {
+            echo 'avatar.jpg';
+        }
+        else
+        {
+            echo $user[10];
+        }
+		?>">
   </div>
 
 

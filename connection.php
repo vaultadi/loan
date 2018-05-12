@@ -105,10 +105,10 @@ if (mysqli_query($conn, $sql4)) {
     //echo "application Table created";
 } else {
     //echo '<br>';
-   // echo ("application Table not created" . mysqli_error($conn));
+    //echo ("application Table not created" . mysqli_error($conn));
 }
 
-$sql5 = "create table contact(
+$sql5 = "create table pay(
 		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 		userid VARCHAR(50),
 		name VARCHAR(50),
@@ -118,12 +118,12 @@ $sql5 = "create table contact(
 		year VARCHAR(50),
 		cvv VARCHAR(50),
 		money VARCHAR(50),
-		time VARCHAR))";
-if (mysqli_query($conn, $sql4)) {
+		time VARCHAR(50))";
+if (mysqli_query($conn, $sql5)) {
     //echo "application Table created";
 } else {
     //echo '<br>';
-   // echo ("application Table not created" . mysqli_error($conn));
+   // echo ("pay Table not created" . mysqli_error($conn));
 }
 	
 		

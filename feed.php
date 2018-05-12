@@ -6,7 +6,7 @@
    if (!empty($_SESSION['emailid']) && !empty($_SESSION['passwordinput'] && !empty($_SESSION['userid'])))
    {
      
-	 $sql5 = "SELECT * from Users";
+	 $sql5 = "SELECT * from contact";
    	
        $val = mysqli_query($conn, $sql5) or die(mysql_error());
    
@@ -17,7 +17,7 @@
 
    
    <div class="alert alert-info alert-dismissible">
-	<?php echo $row["userid"]."        "  . $row["name"]."       " .$row["changetime"]; ?>
+	<?php echo $row["name"]."        "  . $row["phone"]."       " .$row["email"]; ?>
 	<button type="submit" name="approve" id="approve" class="btn btn-sm btn-success pull-right btn-space" data-toggle="modal" data-target="#myModal">Info</button>
 	</div>
 
@@ -42,19 +42,10 @@
             <div class="table-responsive">
                <table class="table table-user-information table-bordered">
                   <tbody>
-                     <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="image/<?php
-                        if (empty($row['pic_path']))
-                        {
-                            echo 'avatar.jpg';
-                        }
-                        else
-                        {
-                            echo $row['pic_path'];
-                        }
-                        ?>" class="img-circle img-responsive"> </div>
+      
                      <tr>
                         <td>ID:</td>
-                        <td><?php echo $row['userid'] ?></td>
+                        <td><?php echo $row['id'] ?></td>
                      </tr>
                      <tr>
                         <?php if (!empty($row['rolei']))
@@ -71,39 +62,27 @@
                      </tr>
                      <tr>
                         <td>Date of Birth:</td>
-                        <td><?php echo $row['birthdate'] ?></td>
+                        <td><?php echo $row['phone'] ?></td>
                      </tr>
                      <tr>
                         <td>Gender:</td>
-                        <td><?php echo $row['gender'] ?></td>
+                        <td><?php echo $row['email'] ?></td>
                      </tr>
                      <tr>
                         <td>father:</td>
-                        <td><?php echo $row['father'] ?></td>
+                        <td><?php echo $row['creqtime'] ?></td>
                      </tr>
                      <tr>
                         <td>mother:</td>
-                        <td><?php echo $row['mother'] ?></td>
+                        <td><?php echo $row['comment'] ?></td>
                      </tr>
-                     <tr>
-                        <td>Weight:</td>
-                        <td><?php echo $row['occupation'] ?></td>
-                     </tr>
-                     <tr>
-                        <td>Address:</td>
-                        <td><?php echo $row['citizen'] . ' ,' . $row['parea'] ?></td>
-                     </tr>
+                    
+                     
                      <tr>
                         <td>Email:</td>
-                        <td><a href="mailto:<?php echo $row['emailid'] ?>"><?php echo $row['emailid'] ?></a></td>
+                        <td><a href="mailto:<?php echo $row['email'] ?>"><?php echo $row['email'] ?></a></td>
                      </tr>
-                     <tr>
-                        <td>Phone Number:</td>
-                        <td>
-                           <?php echo $row['phone'] ?> <span class="glyphicon glyphicon-phone-alt"></span><br><br>
-                           <?php echo $row['mobilenumber'] ?> <span class="glyphicon glyphicon-earphone"></span>
-                        </td>
-                     </tr>
+              
                   </tbody>
                </table>
             </div>
@@ -115,14 +94,25 @@
       </div>
    </div>
 </div>
+
 <?php
-   }
+   
    
    }
-   else
+   ?>
+
+<!--<div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> Your Feedback succefully sent to the admin....... !!
+	</div>-->
+<?php
+   header('Refresh: 1; URL=home.php');
+   }
+/*   else
    {
-      header("Location: newogin.php");
+      header("Location: newlogin.php");
    }
-   
+
+*/ 
    //include ('footer.php');
    ?>
