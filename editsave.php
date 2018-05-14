@@ -17,7 +17,7 @@ if (isset($_POST))
         $id = NULL;
     }
 
-    $sql8 = "UPDATE users SET name='" . $_POST['name'] . "' ,
+    $sql8 = "UPDATE users SET name='" . $_POST["name"] . "' ,
 							 birthdate='" . $_POST["birthdate"] . "',
 							 mobilenumber='" . $_POST["mobilenumber"] . "',
 							 emailid='" . $_POST["emailid"] . "',
@@ -30,6 +30,9 @@ if (isset($_POST))
    				             tarea='" . $_POST["tarea"] . "',
    				             tdistrict='" . $_POST["tdistrict"] . "',
 							tstreet='" . $_POST["street"] . "',
+							lang='" . $_POST["lang"] . "',
+							overview='" . $_POST["overview"] . "',
+							radios1='" . $_POST["radios1"] . "',
 							parea='" . $_POST["parea"] . "',
 							pdistrict='" . $_POST["pdistrict"] . "',
 							pstreet='" . $_POST["pstreet"] . "',
@@ -39,6 +42,7 @@ if (isset($_POST))
    				             pic_path	='" . $_FILES["pic_path"]["name"] . "'							 
    				             WHERE userid='" . $_GET['id'] . "'";
     mysqli_query($conn,$sql8);
+	//echo "Error: " . $sql8 . "<br>" . $conn->error;
     echo 'Details updated successfully !!';
     echo '<br>';
     header('Refresh: 1; URL=view.php');

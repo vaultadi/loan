@@ -150,13 +150,13 @@ $userid = $_SESSION['userid'];
   <div class="col-md-5">
   <div class="radio">
     <label for="radios-0">
-      <input type="radio" name="radios" id="radios-0" value="f" checked="checked">
+      <input type="radio" name="radios" id="radios-0" value="female" checked="checked">
       Female
     </label>
     </div>
   <div class="radio">
     <label for="radios-1">
-      <input type="radio" name="radios" id="radios-1" value="m">
+      <input type="radio" name="radios" id="radios-1" value="male">
       Male
     </label>
 	</div>
@@ -198,7 +198,7 @@ $userid = $_SESSION['userid'];
 </div>
 <!--text arae-->
 ​<div class="form-group">
-  <label class="col-md-4 control-label" for="radios">Gender</label>
+  <label class="col-md-4 control-label" for="radios">Comment</label>
   <div class="col-md-5">
       <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
 </div>

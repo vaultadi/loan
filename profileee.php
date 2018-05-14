@@ -101,11 +101,11 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
   <label class="col-md-4 control-label" for="radios">Marital Status:</label>
   <div class="col-md-4"> 
     <label class="radio-inline" for="radios-0">
-      <input type="radio" name="radios1" id="radios-0" value="1" checked="checked">
+      <input type="radio" name="radios1" id="radios-0" value="married" checked="checked">
       Married
     </label> 
     <label class="radio-inline" for="radios-1">
-      <input type="radio" name="radios1" id="radios-1" value="2">
+      <input type="radio" name="radios1" id="radios-1" value="unmarried">
       Unmarried
     </label>
   </div>
@@ -289,13 +289,13 @@ if (mysqli_num_rows(mysqli_query($conn, $sql7)) >= 1)
   <div class="col-md-6">
   <div class="checkbox">
     <label for="Languages Known-2">
-      <input type="checkbox" name="lang" id="Languages Known-2" value="3">
+      <input type="checkbox" name="lang" id="lang" value="3">
       English
     </label>
     </div>
   <div class="checkbox">
     <label for="Languages Known-3">
-      <input type="checkbox" name="lang" id="Languages Known-3" value="4">
+      <input type="checkbox" name="lang" id="lang" value="4">
       Hindi
     </label>
     </div>

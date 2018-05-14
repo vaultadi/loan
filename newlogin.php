@@ -74,7 +74,8 @@ if (empty($_SESSION))
                         </div>                     
                     </div>  
         </div>
-<?php
+</div>
+		<?php
 
 if (isset($_POST["passwordinput"]) && isset($_POST["emailid"]) && isset($_POST["rolei"]) && isset($_POST["userid"]))
 {
@@ -114,6 +115,7 @@ if (isset($_POST["passwordinput"]) && isset($_POST["emailid"]) && isset($_POST["
 
                 <?php 
 				header("Location: success.php");
+				
     }
     else
     {

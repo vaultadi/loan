@@ -54,7 +54,7 @@ if (mysqli_num_rows($result) > 0) {
 		<div class="alert alert-success alert-dismissible">
 		<?php echo $row["formid"]."        "  . $row["firstnameinput"]."       " .$row["panid"]; ?>
 		<!--<button type="submit" name="approve" id="approve" class="btn btn-sm btn-success pull-right btn-space"> Approve</button>-->
-		<a href="pay.php" class="btn btn-sm btn-success pull-right btn-space" role="button">Pay</a>
+		<a href="pa.php" class="btn btn-sm btn-success pull-right btn-space" role="button">Pay</a>
 		<?php
 		}
 		  else {

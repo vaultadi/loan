@@ -17,8 +17,10 @@
 
    
    <div class="alert alert-info alert-dismissible">
-	<?php echo $row["name"]."        "  . $row["phone"]."       " .$row["email"]; ?>
-	<button type="submit" name="approve" id="approve" class="btn btn-sm btn-success pull-right btn-space" data-toggle="modal" data-target="#myModal">Info</button>
+	<?php echo $row["name"]."        "  . $row["phone"]."       " .$row["email"]; 
+	echo "<a href='#' data-toggle='modal' data-target='#" . $row['name'] . "'  class='btn btn-sm btn-success pull-right btn-space'>Info</a>"
+	?>
+	<!--<button type="submit" name="approve" id="approve" class="btn btn-sm btn-success pull-right btn-space" data-toggle="modal" data-target="#">Info</button>-->
 	</div>
 
 <?php
@@ -29,7 +31,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="<?php echo $row['name'] ?>" role="dialog">
    <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
@@ -106,7 +108,7 @@
     <strong>Success!</strong> Your Feedback succefully sent to the admin....... !!
 	</div>-->
 <?php
-   header('Refresh: 1; URL=home.php');
+ //  header('Refresh: 1; URL=home.php');
    }
 /*   else
    {

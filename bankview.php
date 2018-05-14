@@ -5,29 +5,27 @@
    
    if (!empty($_SESSION['emailid']) && !empty($_SESSION['passwordinput'] && !empty($_SESSION['userid'])))
    {
-     
-	 $sql5 = "SELECT * from Users";
+     if ($_SESSION['rolei'] == 'banker')
+    {
+        	 $sql5 = "SELECT * from Users WHERE rolei = 'customer' ";
+    }
+	 
    	
-       $val = mysqli_query($conn, $sql5) or die(mysql_error());
+       
+	   $val = mysqli_query($conn, $sql5) or die(mysql_error());
    
    	
        while ($row = mysqli_fetch_assoc($val))
        {	
-   ?>	
 
-   
-   <div class="alert alert-info alert-dismissible">
-	<?php echo $row["userid"]."        "  . $row["name"]."       " .$row["changetime"]; 
-	echo "<a href='#' data-toggle='modal' data-target='#" . $row['userid'] . "'  class='btn btn-sm btn-success pull-right btn-space'>Info</a>";
-	?>
-	<!--<button type="submit" name="approve" id="approve" class="btn btn-sm btn-success pull-right btn-space" data-toggle="modal" data-target="#myModal">Info</button>-->
-	</div>
-
-<?php
-
-?>
-
-
+  ?>		
+			<div class="alert alert-info alert-dismissible">
+			<?php echo $row["userid"]."        "  . $row["name"]."       " .$row["changetime"]; 
+		
+			echo "<a href='#' data-toggle='modal' data-target='#" . $row['userid'] . "'  class='btn btn-sm btn-success pull-right btn-space'>Info</a>"
+			?>
+			</div>
+			
 
 
 <!-- Modal -->
@@ -120,7 +118,7 @@
 <?php
    }
    
-   }
+}
    else
    {
       header("Location: newogin.php");
