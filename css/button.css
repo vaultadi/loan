@@ -1,9 +1,9 @@
 #nav li a {
 padding: 5px 15px;
 font-weight: bold;
-color: #ccc;
-color: rgba(255, 255, 255, 0.7);
-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+color: #0e2e60;
+/*color: rgba(0, 0, 0, 0.7);
+text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);*/
 -webkit-border-radius: 14px;
 -moz-border-radius: 14px;
 border-radius: 14px;

@@ -16,6 +16,11 @@
           color:#00bfff;
         }
 
+		.navbar-default {
+			color: #FFFFFF;
+			background-color: #7cadf9;
+}
+		
         #tip 
         {
             display:none;  

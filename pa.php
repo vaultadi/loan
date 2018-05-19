@@ -8,7 +8,7 @@ if (!empty($_SESSION))
 ?>
 <div class="container">
     <div class="col-sm-6">
-	<form action="pays.php" method="post" class="form-group">
+	<form action="pays.php" method="post" class="form-group" id="pays">
         <fieldset>
             <legend>Payment</legend>
             <div class="control-group">

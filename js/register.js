@@ -1,9 +1,9 @@
 jQuery(document).ready(function () {
 
 $( ".alert" ).after( $( "#register" ) );
-$( ".alert" ).after( $( "#login" ) );
-$( ".alert" ).after( $( "#fpassword" ) );	
-	
+$( ".alert" ).after( $( "#loginform" ) );
+$( ".alert" ).after( $( "#pays" ) );	
+$( ".alert" ).after( $( "#apply" ) );	
 	
     jQuery("#pass2").focusout(function(e){		
         e.preventDefault();

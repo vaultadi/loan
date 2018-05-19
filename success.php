@@ -5,7 +5,8 @@ if (!empty($_SESSION))
 {
 ?>
 <link rel="stylesheet" href="css/success.css">
-    <div id="myCarousel" class="carousel slide head-t-mar-70" data-interval="false">
+<form class="form-horizontal" action="" method="" id="success"   
+   <div id="myCarousel" class="carousel slide head-t-mar-70" data-interval="false">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>

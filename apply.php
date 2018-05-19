@@ -7,7 +7,7 @@ $userid = $_SESSION['userid'];
 ?>
 <div class="container">
 	<div class="row">
-<form class="form-horizontal" action="" method="post">
+<form class="form-horizontal" action="" method="post" id="apply">
 <fieldset>
 
 <!-- Form Name -->
@@ -139,7 +139,7 @@ $userid = $_SESSION['userid'];
 <div class="form-group">
   <label class="col-md-4 control-label" for="birthinput">Date of Birth</label>  
   <div class="col-md-5">
-  <input id="birthinput" name="birthinput" type="text" placeholder="mm/dd/yyyy" class="form-control input-md" required="">
+  <input id="birthinput" name="birthinput" type="date" placeholder="mm/dd/yyyy" class="form-control input-md" required="">
   <span class="help-block">Please enter your date of birth in mm/dd/yyyy format</span>  
   </div>
 </div>
