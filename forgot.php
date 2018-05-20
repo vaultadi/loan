@@ -2,6 +2,7 @@
 include 'header.php';
 include 'connection.php';
 if (empty($_SESSION))
+
 {
 ?>
 <div class="form-gap"></div>

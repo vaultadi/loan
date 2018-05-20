@@ -6,6 +6,7 @@
  include 'connection.php';
  //include 'session.php';
 
+
 if (isset($_POST['emailid']) && isset($_POST['userid']) && isset($_POST['passwordinput']) && isset($_POST['confirm_password']))
 {
     $sql = "SELECT * from Users where emailid='" . $_POST["emailid"] . "' AND userid='" . $_POST["userid"] . "' ";
